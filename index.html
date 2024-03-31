@@ -1,498 +1,257 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="UniFL: Improve Stable Diffusion via Unified Feedback Learning"/>
-  <meta property="og:description" content="UniFL: Improve Stable Diffusion via Unified Feedback Learning"/>
-  <meta property="og:url" content="https://fate-zero-edit.github.io/"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/images/framework.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>UniFL</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-	    tex2jax: {
-	        inlineMath: [['$','$'], ['\\(','\\)']],
-	        processEscapes: true
-	    }
-	});
-    </script>
-
-  <script src="static/js/index.js"></script>
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniFL: Improve Stable Diffusion via Unified Feedback Learning</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
 </head>
+
 <body>
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="xtitle is-1 publication-title">
-              <span style="font-weight: 600;color: #eb002a">UniFL:</span>
-              <span>I</span>mprove
-              <span>S</span>table
-              <span>D</span>iffusion via
-              <span>U</span>nified</span> Feedback 
-              <span>L</span>earning</h1> 
-            <div class="is-size-5 publication-authors">
-              <!-- ICCV 2023 Oral Presentation -->
-              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Author</small></span> -->
-            </div>
-          </br>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=QmdyVQ0AAAAJ&hl=en" target="_blank">Zhang Jiacheng</a><sup>1,2</sup></span>
-                <span class="author-block">
-                  <a href="https://scholar.google.com/citations?user=MxvLqLcAAAAJ&hl=zh-CN&oi=ao" target="_blank">Wu Jie</a><sup>1</sup></span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=C_6JH-IAAAAJ&hl=zh-CN&oi=ao" target="_blank">Ren Yuxi</a><sup>1</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=JP14UGgAAAAJ&hl=zh-CN&oi=ao" target="_blank">Xia Xin</a><sup>1</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=FunSYJUAAAAJ&hl=zh-CN&oi=ao" target="_blank">Kuang Huafeng</a><sup>1</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=Z-0EqtgAAAAJ" target="_blank">Xie Pan</a><sup>2</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=JrWHtn8AAAAJ&hl=en" target="_blank">Li Jiashi</a><sup>2</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?hl=zh-CN&user=CVkM9TQAAAAJ" target="_blank">Xiao Xuefeng</a><sup>1</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=78vU1IUAAAAJ&hl=zh-CN" target="_blank">Huang Weilin</a><sup>1</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="https://scholar.google.com/citations?user=zKtYrHYAAAAJ&hl=zh-CN" target="_blank">Zheng Min</a><sup>1</sup>
-                  </span>
-                  <span class="author-block">
-                    <a>FU Lean</a><sup>1</sup>
-                  </span>
-                  <span class="author-block">
-                    <a href="http://guanbinli.com/" target="_blank">Li Guanbin</a><sup>2</sup>
-                  </span>
-                  </div>
-                </span>
-              </br>
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">
-                    <sup>1</sup> ByteDance Inc. &nbsp;&nbsp;&nbsp;
-                    <sup>2</sup> Sun Yat-sen University &nbsp;&nbsp;&nbsp;
-                    
-                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding Author</small></span> -->
-                  </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                      
-                       <!-- ArXiv abstract Link -->
-                  <span class="link-block">
-                    <a target="_blank"
-                    class="external-link ">
-                    <span class="icon">
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+      </div>
+      <div class="container has-text-centered">
+        <h1 class="title is-1 publication-title">
+          UniFL: 
+        </h1>
+        <h3 class="title is-3 publication-title">
+          Improve Stable Diffusion via Unified Feedback Learning
+        </h3>
+        <div class="is-size-5 publication-authors">
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=QmdyVQ0AAAAJ&hl=en">Zhang Jiacheng</a>*, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=MxvLqLcAAAAJ&hl=zh-CN&oi=ao">Wu Jie</a>*† </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=C_6JH-IAAAAJ&hl=zh-CN&oi=ao">Ren Yuxi</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=JP14UGgAAAAJ&hl=zh-CN&oi=ao">Xia Xin</a>, </div>
+
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=FunSYJUAAAAJ&hl=zh-CN&oi=ao">Kuang Huafeng</a>, </div>
+
+          <div class="author-block"><a href="https://scholar.google.com/citations?hl=zh-CN&user=Z-0EqtgAAAAJ">Xie Pan</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=JrWHtn8AAAAJ&hl=en">Li Jiashi</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?hl=zh-CN&user=CVkM9TQAAAAJ">Xiao Xuefeng</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=78vU1IUAAAAJ&hl=zh-CN">Huang Weilin</a>, </div>
+
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=zKtYrHYAAAAJ&hl=zh-CN">Zheng Min</a>, </div>
+          <div class="author-block">FU Lean, </div>
+
+          <div class="author-block"><a href="http://guanbinli.com/">Li Guanbin</a>, </div>
+                  
+        </div>
+
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">ByteDance Inc.</span>
+          <span class="author-block">&nbsp&nbsp<sup>*</sup>Equal Contribution &nbsp&nbsp<sup>†</sup>Project Leader</span>
+        </div>
+
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <!-- PDF Link. -->
+            <span class="link-block">
+                <!-- <a href="https://arxiv.org/abs/2401.04468"
+                   class="external-link button is-normal is-rounded is-dark"> -->
+                  <span class="icon">
                       <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-
-                  <!-- Github link -->
-                  <!-- <span class="link-block">
-                    <a href="https://github.com/ChenyangQiQi/FateZero" target="_blank"
-                    class="external-link ">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span> -->
-
-                <!-- Github link -->
-                <!-- <span class="link-block">
-                  <a href="https://hkustconnect-my.sharepoint.com/:v:/g/personal/cqiaa_connect_ust_hk/EXKDI_nahEhKtiYPvvyU9SkBDTG2W4G1AZ_vkC7ekh3ENw?e=ficp9t" target="_blank"
-                  class="external-link ">
-                  <span class="icon">
-                    <i class="fab fa-youtube"></i>
                   </span>
-                  <span>Video</span>
+                  <span>arXiv</span>
                 </a>
-              </span>
-              <span class="link-block">
-                <a href="https://huggingface.co/spaces/chenyangqi/FateZero"  target="_blank"
-                   class="external-link">
-                  <span class="icon">
-                    <img src="./static/images/hf_black.png">
-                  </span>
-                  <span>Demo</span>
-                  </a> -->
-                  <!-- <span class="link-block">
-                    <a href="https://huggingface.co/spaces/PAIR/Text2Video-Zero"
-                       class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <img src="./static/images/hf.png" alt="Button Image">
-                      </span>
-                      <span>Demo</span>
-                      </a> -->
-            </div>
-          </div>
+            </span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
 <section class="hero">
-  <p class="trdl">TL;DR: Boost and accelerate your Stable Diffusion with a unified feedback tuning framework.</p>
   <div class="is-max-desktop">
+    <h2 class="title is-2, columns is-centered">Text-to-Image Examples</h2>
     <div class="marquee-wrapper">
         <div class="marquee-block">
           <div class="marquee-inner to-left">
             <span>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%"> -->
-                  <!-- Your video file here -->
-                  <!-- <source src="static/videos/1_surf_ukiyo_conat_result.mp4"
-                  type="video/mp4"> -->
-                <!-- sorry, your browser does not support HTML5 Videos.
-                </video>
-                <p class="text-white"> <c> + Ukiyo-e Style </c> </p> -->
+            
                 <img class="image" src="static/images/4step_1.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> dream a dog holding a cigar and glass with whiskey + dim volumetric lighting, 8k octane beautifully ... </p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/5_train_shikai_conat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.  
-                  </video>
-                <p class="text-white"> <c> + Makoto Shinkai Style </c> </p> -->
+             
                 <img class="image" src="static/images/4step_2.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> portrait of a clown wearing a medieval royal robe and an ornate crown on a colorful close ... </p>
 
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                <source src="static/videos/3_sunflower_vangogh_conat_result.mp4"
-                  type="video/mp4">
-                sorry, your browser does not support HTML5 Videos.
-                </video>
-                <p class="text-white"> <c> + Van Gogh Style </c> </p> -->
+              
                 <img class="image" src="static/images/4step_3.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> burger gone wild, mega detailed, volumetric lighting, beautiful, golden hour, sharp focus, ultra detail ...</p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/8_swan_swa_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white"> Swan ➜ <c>Swarovski Swan</c> </p> -->
+             
 
                 <img class="image" src="static/images/4step_4.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"><c>SDXL + UniFL 4-Step</c> 3 d render abundant flowering hosta plants made from ideas, 3 d geometric neon shapes ...</p>
 
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/9_duck_rubber_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Duck ➜ <c>Rubber Duck</c> </p> -->
+               
                 <img class="image" src="static/images/4step_5.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> 3 d sci - fi cgartist rendering of a hyper realistic marble greek statuary bust floating in space ...</p>
 
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/11_dog_robotic_corgin_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Dog ➜ <c> Robotic Dog </c> </p> -->
+               
                 <img class="image" src="static/images/4step_6.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> 4k Portrait of Friedrich Nietzsche in his Suit with a chiseled Jawline and serious Look ...</p>
 
                 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/12_fox_snow_wolf_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white"> White Fox ➜ <c> Gray Wolf </c> </p> -->
+         
                 <img class="image" src="static/images/4step_7.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> a 3 d render of peewee herman on max headroom, octane render, unreal engine, hyperrealism, 8 k ...</p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/14_car_grass_tiger_corgin_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Cat ➜ <c> Black Cat, Grass </c> </p> -->
+               
                 <img class="image" src="static/images/4step_8.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"><c>SDXL + UniFL 4-Step</c> a beautiful classy partying couple, dimly lit upscale 1920s speakeasy, relaxed pose, art deco, detail ...</p>
 
               </div>
+            
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/13_bear_tiger_leopard_lion_03_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Bear ➜ <c> Lion </c> </p> -->
-                <img class="image" src="static/images/4step_9.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/17_car_posche_01_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Cat ➜ <c>Posche Car<sup>*</sup></c> </p> -->
+              
                 <img class="image" src="static/images/4step_10.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"><c>SDXL + UniFL 4-Step</c> a chubby tabby cat surfing on a rainbow in outer space, diffuse lighting, fantasy, intricate, surreal ...</p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/16_sq_eat_03_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Rabbit ➜ <c>Robot Mouse </c> </p> -->
+               
                 <img class="image" src="static/images/4step_11.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"><c>SDXL + UniFL 4-Step</c> a closeup photorealistic photograph of a rabbit chef. film still, vibrant colors. this 4 k hd image ...</p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/19_man_wonder_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Man ➜ <c>Wonder Woman<sup>*</sup></c> </p> -->
+               
                 <img class="image" src="static/images/4step_12.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> a contemporary painting of a little boy sits in his bed and looks through the window into the night ...</p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/18_swan_01_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Swan ➜ <c>White Duck</c></p> -->
-                <p class="text-white"> Inference <c>4-Step</c> </p>
-
+             
                 <img class="image" src="static/images/4step_13.jpg" width="400" height="400" >
+                <p class="text-white"><c>SDXL + UniFL 4-Step</c> a cow in a luxury chair reading the newspaper, digital art, landscape, fantasy art, octane render ...</p>
+
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/10_bus_gpu_01_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Bus ➜ <c>GPU</c> </p> -->
+               
                 <img class="image" src="static/images/4step_14.jpg" width="400" height="400" >
-                <p class="text-white"> Inference <c>4-Step</c> </p>
+                <p class="text-white"> <c>SDXL + UniFL 4-Step</c> a creepy slimy pink ocelot that looks like an investigator, wearing a long beige trench coat, CGI ...</p>
+
+              </div>
+              <div class="marquee-item">
+             
+                <img class="image" src="static/images/25step_16.jpg" width="400" height="400" >
+                <p class="text-white"> <c>SDXL + UniFL 20-Step</c> a goldfish swimming inside a whiskey glass, close up view, dramatic lighting, DOF, caustics, soft ...</p>
 
               </div>
             </span>
             <span>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%"> -->
-                  <!-- Your video file here -->
-                  <!-- <source src="static/videos/1_surf_ukiyo_conat_result.mp4"
-                  type="video/mp4">
-                sorry, your browser does not support HTML5 Videos.
-                </video>
-                <p class="text-white"> <c> + Ukiyo-e Style </c> </p> -->
-                <img class="image" src="static/images/25step_15.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/5_train_shikai_conat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.  
-                  </video>
-                <p class="text-white"> <c> + Makoto Shinkai Style </c> </p> -->
-                <img class="image" src="static/images/25step_2.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                <source src="static/videos/3_sunflower_vangogh_conat_result.mp4"
-                  type="video/mp4">
-                sorry, your browser does not support HTML5 Videos.
-                </video>
-                <p class="text-white"> <c> + Van Gogh Style </c> </p> -->
-                <img class="image" src="static/images/25step_3.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/8_swan_swa_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white"> Swan ➜ <c>Swarovski Swan</c> </p> -->
-                <img class="image" src="static/images/25step_4.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/9_duck_rubber_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Duck ➜ <c>Rubber Duck</c> </p> -->
-                <img class="image" src="static/images/25step_5.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/11_dog_robotic_corgin_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Dog ➜ <c> Robotic Dog </c> </p> -->
-                <img class="image" src="static/images/25step_6.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/12_fox_snow_wolf_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white"> White Fox ➜ <c> Gray Wolf </c> </p> -->
-                <img class="image" src="static/images/25step_15.jpg" width="400" height="400" >
-
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/14_car_grass_tiger_corgin_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Cat ➜ <c> Black Cat, Grass </c> </p> -->
-                <img class="image" src="static/images/25step_16.jpg" width="400" height="400" >
-
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/13_bear_tiger_leopard_lion_03_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Bear ➜ <c> Lion </c> </p> -->
-                <img class="image" src="static/images/25step_9.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/17_car_posche_01_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Cat ➜ <c>Posche Car<sup>*</sup></c> </p> -->
-                <img class="image" src="static/images/25step_10.jpg" width="400" height="400" >
-
-              </div>
-              <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/16_sq_eat_03_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Rabbit ➜ <c>Robot Mouse </c> </p> -->
+              
                 <img class="image" src="static/images/25step_11.jpg" width="400" height="400" >
+                <p class="text-white"> <c>SDXL + UniFL 20-Step</c> beautiful ceramics studio photograph of a tall geometric symmetrical stoneware vase glazed by Jackson ...</p>
+
+              </div>
+
+              <div class="marquee-item">
+               
+                <img class="image" src="static/images/25step_2.jpg" width="400" height="400" >
+                <p class="text-white"> <c>SDXL + UniFL 20-Step</c> a full body portrait of a beautiful french milkmaid in silk underwear, recumbent in the arboreal sun ...</p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/19_man_wonder_02_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Man ➜ <c>Wonder Woman<sup>*</sup></c> </p> -->
+               
+                <img class="image" src="static/images/25step_3.jpg" width="400" height="400" >
+                <p class="text-white">  <c>SDXL + UniFL 20-Step</c> a grinning girl, with plant patterns, her face looks like an orchid, she is the center of the garden ...</p>
+
+              </div>
+              <div class="marquee-item">
+            
+                <img class="image" src="static/images/25step_4.jpg" width="400" height="400" >
+                <p class="text-white"> <c>SDXL + UniFL 20-Step</c> A high quality illustration of a goth-clown hybrid with red hair, trending on artstation, hd ...</p>
+
+              </div>
+              <div class="marquee-item">
+            
+                <img class="image" src="static/images/25step_6.jpg" width="400" height="400" >
+                <p class="text-white"> <c>SDXL + UniFL 20-Step</c> a portrait of japanese crane walking into a forest of japanese pines, by range murata, a big red sun ...</p>
+
+              </div>
+              <div class="marquee-item">
+               
+                <img class="image" src="static/images/25step_6.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+             
+                <img class="image" src="static/images/25step_16.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+             
+                <img class="image" src="static/images/25step_16.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+               
+                <img class="image" src="static/images/25step_9.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+                
+                <img class="image" src="static/images/25step_10.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+            
+                <img class="image" src="static/images/25step_11.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+             
                 <img class="image" src="static/images/25step_12.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/18_swan_01_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Swan ➜ <c>White Duck</c></p> -->
+               
                 <img class="image" src="static/images/25step_13.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
 
               </div>
               <div class="marquee-item">
-                <!-- <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" autoplay muted loop playsinline height="100%">
-                  <source src="static/videos/10_bus_gpu_01_concat_result.mp4"
-                    type="video/mp4">
-                  sorry, your browser does not support HTML5 Videos.
-                  </video>
-                <p class="text-white">Bus ➜ <c>GPU</c> </p> -->
+              
                 <img class="image" src="static/images/25step_14.jpg" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
 
               </div>
             </span>
@@ -500,8 +259,158 @@
     </div>
   </section>
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2, columns is-centered">Text-to-Video Examples</h2>
+    <!-- <hr>
+    <center>
+      <h2 class="title is-5"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> Animals</h2>
+    </center>
+    <hr> -->
+
+    <!-- <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A beautiful woman, with a pink and platinum-colored ombre mohawk, facing the camera, wearing a composition of bubble wrap, cyberpunk jacket.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A fat rabbit wearing a purple robe walking through a fantasy landscape.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A girl is writing something on a book. Oil painting style.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A girl with a hairband performing a song with her guitar on a warm evening at a local market, children's story book.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center;">"A beautiful woman, with a pink and platinum-colored ombre mohawk, facing the camera, wearing a composition of bubble wrap, cyberpunk jacket."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"A fat rabbit wearing a purple robe walking through a fantasy landscape."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"A girl is writing something on a book. Oil painting style."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"A girl with a hairband performing a song with her guitar on a warm evening at a local market, children's story book."</td>
+        </tr>
+      </table>
+    </center> -->
+<!-- 
+    <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A group of mongooses scuttle about, set against a desert backdrop, bathed in bright and warm earth tones.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A lone traveller walks in a misty forest.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A medieval witch making a poison.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="assets/T2V/A monkey making latte art.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center;">"A group of mongooses scuttle about, set against a desert backdrop, bathed in bright and warm earth tones."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"A lone traveller walks in a misty forest."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"A medieval witch making a poison."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"A monkey making latte art."</td>
+        </tr>
+      </table>
+    </center> -->
+    <center>
+      <table class="center">
+        <tr>
+          <td width="25%" style="text-align: center; font-weight: bold; font-size: 16px; padding-bottom: 10px;">AnimateDiff + LCM 12-Step</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width="25%" style="text-align: center; font-weight: bold; color: red; font-size: 16px;">AnimateDiff + UniFL 12-Step</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width="25%" style="text-align: center; font-weight: bold; font-size: 16px;">AnimateDiff + LCM 12-Step</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width="25%" style="text-align: center; font-weight: bold; color: red; font-size: 16px;">AnimateDiff + UniFL 12-Step</td>
+        </tr>
+      </table>
+    </center>
+
+    <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_black_ink.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_black_ink.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_female.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_female.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center;">"a drop of black ink falling in a superwhite background in slow motions angle advertising."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"a drop of black ink falling in a superwhite background in slow motions angle advertising."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"3d animated female character, singing and moving her arms, musical film style , 4k, high quality vid ..."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"3d animated female character, singing and moving her arms, musical film style , 4k, high quality vid ..."</td>
+        </tr>
+      </table>
+    </center>
+
+    <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_lick.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_lick.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_swim_pool.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_swim_pool.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center;">":lipsticks advertisement  -camera pan up right -s 7."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">":lipsticks advertisement  -camera pan up right -s 7."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"modern swimming pool villa design by arquitetura, in winter, snow, in the style of 32k uhd, white and blue ... "</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"modern swimming pool villa design by arquitetura, in winter, snow, in the style of 32k uhd, white and blue ..."</td>
+        </tr>
+      </table>
+    </center>
+
+
+    <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_panda.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_panda.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_speed_car.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_speed_car.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center;">"A cute talking panda stands in the museum, furry，Chinese New Year style red clothes， cinematic, 4k, epic Steven Spielberg movie still ..."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"A cute talking panda stands in the museum, furry，Chinese New Year style red clothes， cinematic, 4k, epic Steven Spielberg movie still ..."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"a uniquely captivating Ferrari Portofino advertisement, emphasizing its elegance and speed, night, ultra-high definition."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center;">"a uniquely captivating Ferrari Portofino advertisement, emphasizing its elegance and speed, night, ultra-high definition."</td>
+        </tr>
+      </table>
+    </center>
+</section>
+
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -509,47 +418,50 @@
         <div class="content has-text-justified">
           <p>
             Diffusion models have revolutionized the field of image generation, 
-          leading to the proliferation of high-quality models and diverse downstream applications. 
-          However, despite these significant advancements, the current competitive solutions still 
-          suffer from several limitations, including inferior visual quality, a lack of aesthetic appeal, 
-          and inefficient inference, without a comprehensive solution in sight. 
-          To address these challenges, we present <b><i>UniFL</i></b>, a unified framework that leverages feedback learning to enhance diffusion models comprehensively. 
-          UniFL stands out as a universal, effective, and generalizable solution applicable to various diffusion models, such as SD1.5 and SDXL.
-          Notably, UniFL incorporates three key components: perceptual feedback learning, which enhances visual quality; 
-          decoupled feedback learning, which improves aesthetic appeal; 
-          and adversarial feedback learning, which optimizes inference speed.
-          In-depth experiments and extensive user studies validate the superior performance of our proposed method in 
-          enhancing both the quality of generated models and their acceleration. For instance, UniFL surpasses ImageReward by <b>17%</b> user preference in terms of generation quality 
-          and outperforms LCM and SDXL Turbo by <b>57%</b> and <b>20%</b> in 4-step inference. Moreover, we have verified the efficacy of our approach in downstream tasks, including Lora, ControlNet, and AnimateDiff.
+            leading to the proliferation of high-quality models and diverse downstream applications. 
+            However, despite these significant advancements, the current competitive solutions still 
+            suffer from several limitations, including inferior visual quality, a lack of aesthetic appeal, 
+            and inefficient inference, without a comprehensive solution in sight. 
+            To address these challenges, we present <b><i>UniFL</i></b>, a unified framework that leverages feedback learning to enhance diffusion models comprehensively. 
+            UniFL stands out as a universal, effective, and generalizable solution applicable to various diffusion models, such as SD1.5 and SDXL.
+            Notably, UniFL incorporates three key components: perceptual feedback learning, which enhances visual quality; 
+            decoupled feedback learning, which improves aesthetic appeal; 
+            and adversarial feedback learning, which optimizes inference speed.
+            In-depth experiments and extensive user studies validate the superior performance of our proposed method in 
+            enhancing both the quality of generated models and their acceleration. For instance, UniFL surpasses ImageReward by <b>17%</b> user preference in terms of generation quality 
+            and outperforms LCM and SDXL Turbo by <b>57%</b> and <b>20%</b> in 4-step inference. Moreover, we have verified the efficacy of our approach in downstream tasks, including Lora, ControlNet, and AnimateDiff.
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
 
-
-<!-- Paper abstract -->
-<section class="section hero">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column">
-        <h2 class="title is-2">Pipeline</h2>
-        <div class="content has-text-justified">
-          <img src="static/images/pipeline.jpg" />
-        </div>
-        <p class="content has-text-justified">
-         <b>Pipeline</b>: UniFL aims to elevate the visual generation quality, enhance preference aesthetics, and accelerate the inference process in a unified perspective of feedback learning. 
-         The Pipeline of UniFL is depicted as follows. UniFL contains three key components: <b>Perceptual Feedback Learning:</b> Exploit the generation prior embedded in the existing image perceptual model
-         (e.g. Instance segmentation model). <b>Decoupled Feedback Learning:</b> Achieve efficient human preference alignment with multiple fine-grained human preference reward models.
-         <b>Adversarial Feedback Learning:</b>  Adversarially train the diffusion model and reward model, improving the generation quality for the sample of fewer inference steps. The model is trained via two-stage opitmization,
-        </p>
-      </div>
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+        <h2 class="title is-2, columns is-centered">Pipeline</h2>
+      <br>
+      <h2 class="subtitle has-text-justified">
+        <figure style="width: 100%;">
+          <a href="assets/figures/overview.png">
+              <!-- <img width="100%" src="assets/figures/overview.png"> -->
+              <img width="100%" src="static/images/pipeline.jpg" />
+          </a>
+        </figure>
+      </h2>
     </div>
   </div>
+  <p class="content has-text-justified">
+    <b>Pipeline</b>: UniFL aims to elevate the visual generation quality, enhance preference aesthetics, and accelerate the inference process in a unified perspective of feedback learning. 
+    The Pipeline of UniFL is depicted as follows. UniFL contains three key components: <b>Perceptual Feedback Learning:</b> Exploit the generation prior embedded in the existing image perceptual model
+    (e.g. Instance segmentation model). <b>Decoupled Feedback Learning:</b> Achieve efficient human preference alignment with multiple fine-grained human preference reward models.
+    <b>Adversarial Feedback Learning:</b>  Adversarially train the diffusion model and reward model, improving the generation quality for the sample of fewer inference steps. The model is trained via two-stage opitmization,
+   </p>
+</div>
 </section>
-<!-- End paper abstract -->
 
 
 <section class="section hero">
@@ -569,74 +481,13 @@
           <img src="static/images/pefl_performance.jpg" />
         </div>
         <p class="content has-text-justified">
-          The Perceptual Feedback Learning significantly enhance the visual generation quality of diffusion model, including style response, structure optimization.
+          Perceptual Feedback Learning of UniFL significantly enhance the visual generation quality of diffusion model, including style response, structure optimization.
         </p>
       </div>
       
     </div>
   </div>
 </section>
-
-<!-- Image carousel -->
-<!-- <section class="section hero is-light"> -->
-  <!-- <div class="hero-body"> -->
-    <!-- <div class="block center">
-      <h2 class="title is-3">Perceptual Feedback Learning</h2>
-      <img class="image" src="static/images/pefl.jpg" width="900" height="400"> -->
-      <!-- <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1"  class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/2_car_watercolor_conat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"> <c> + Watercolor Painting </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/7_swan_carton_conat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"><c> + Cartoon Style </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/4_rabit_pokemon_conat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"> <c> + A Pokémon Cartoon Style </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/3_sunflower_vangogh_conat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"> <c> + Van Gogh Style Painting </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/1_surf_ukiyo_conat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"> <c> + Ukiyo-e Style</c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/6_lily_monet_conat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"><c> + Monet Style </c> </p>
-      </div> -->
-  <!-- </div> -->
-<!-- </div>
-</div>
-</section> -->
-<!-- End image carousel -->
-
 
 
 <section class="section hero">
@@ -647,7 +498,9 @@
         <div class="content has-text-justified">
           <img src="static/images/acceleration.jpg" />
         </div>
-     
+        <p class="content has-text-justified">
+          Adversarial Feedback Learning of UniFL achieves superior acceleration performance compared with the existing commonly used acceleration methods, including LCM, SDXL-Turbo, etc.
+        </p>
 
        
       </div>
@@ -655,214 +508,6 @@
     </div>
   </div>
 </section>
-
-
-<!-- Image carousel -->
-<!-- <section class="section hero">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Video Attribute Editing Using Stable Diffusion</h2>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/16_sq_eat_01_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white" style="font-size: 18px;" > Squirrel, Carrot ➜ <c> White mouse, Peanut </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/16_sq_eat_02_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white" style="font-size: 16px;" >Squirrel, Carrot ➜ <c> Rabbit, Eggplant</c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/16_sq_eat_03_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white" style="font-size: 16px;" > Squirrel, Carrot ➜ <c> Robot mouse, Screwdriver</c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/14_car_grass_tiger_corgin_01_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"> Cat ➜ <c> A yellow cute leopard </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/14_car_grass_tiger_corgin_02_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white"> Cat ➜ <c> Black Cat, Grass... </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/14_car_grass_tiger_corgin_03_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">Cat ➜ <c>Red Tiger</c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/13_bear_tiger_leopard_lion_01_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">Bear ➜ <c>A Red Tiger</c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/13_bear_tiger_leopard_lion_02_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">Bear ➜ <c> A yellow leopard </c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/13_bear_tiger_leopard_lion_03_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">Bear ➜ <c>A yellow lion </c> </p>
-      </div>
-  </div>
-</div>
-</div>
-</section> -->
-<!-- 
-<section class="section hero is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Video Shape-Aware Editing Using Tune-A-Video Checkpoint<sup>*,3</sup></h2>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/17_car_posche_01_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">Cat ➜ <c>Posche Car<sup>*</sup></c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/18_swan_01_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">Swan ➜ <c>White Duck<sup>*</sup></c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/18_swan_02_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">Swan ➜ <c>Pink flamingo<sup>*</sup></c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/19_man_wonder_02_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white" style="font-size: 18px;">A man ➜ <c>A Wonder Woman, With cowboy hat<sup>*</sup></c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/19_man_wonder_01_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">A man ➜ <c>A Batman<sup>*</sup></c> </p>
-      </div>
-      <div class="marquee-item">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/19_man_wonder_03_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <p class="text-white">A man ➜ <c>A Spider-Man<sup>*</sup></c> </p>
-      </div>
-  </div>
-</div>
-</div>
-</section> -->
-
-<!-- 
-<section class="section hero">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3"> Comparsions </h2>
-      <div class="marquee-item s-larger">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/20_car_posche_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-        <d>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tune-A-Video&nbsp;&nbsp;&nbsp;&nbsp;Frame SDEdit&nbsp;&nbsp;&nbsp;&nbsp;Frame Null-Inv&nbsp;&nbsp;&nbsp;&nbsp;NLA + Null-Inv     </d>
-        <p class="text-white">Cat ➜ <c>Posche Car<sup>*</sup></c> </p>
-      </div>
-      <div class="marquee-item s-larger">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/21_car_watercolor_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-          <d>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tune-A-Video&nbsp;&nbsp;&nbsp;&nbsp;Frame SDEdit&nbsp;&nbsp;&nbsp;&nbsp;Frame Null-Inv&nbsp;&nbsp;&nbsp;&nbsp;NLA + Null-Inv     </d>
-        <p class="text-white"><c> + Watercolor Painting </c> </p>
-      </div>
-      <div class="marquee-item s-larger">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/22_swan_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-          <d>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tune-A-Video&nbsp;&nbsp;&nbsp;&nbsp;Frame SDEdit&nbsp;&nbsp;&nbsp;&nbsp;Frame Null-Inv&nbsp;&nbsp;&nbsp;&nbsp;NLA + Null-Inv     </d>
-        <p class="text-white">Swan ➜ <c> Swarovski Swan </c> </p>
-      </div>
-      
-      <div class="marquee-item s-larger">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/24_flamingo_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-          <d>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tune-A-Video&nbsp;&nbsp;&nbsp;&nbsp;Frame SDEdit&nbsp;&nbsp;&nbsp;&nbsp;Frame Null-Inv&nbsp;&nbsp;&nbsp;&nbsp;NLA + Null-Inv     </d>
-        <p class="text-white">Swan ➜ <c>Pink flamingo<sup>*</sup></c> </p>
-      </div>
-      <div class="marquee-item s-larger-4">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/25_surf_unkio_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-          <d>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tune-A-Video&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frame SDEdit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frame Null-Inv </d>
-        <p class="text-white"> <c> + Ukiyo-e Style </c> </p>
-      </div>
-     
-      <div class="marquee-item s-larger-4">
-        <video onloadstart="this.playbackRate = 0.75;" poster="" id="video1" class="lozad" autoplay muted loop playsinline height="100%">
-          <source src="static/videos/27_train_shinkai_concat_result.mp4"
-            type="video/mp4">
-          sorry, your browser does not support HTML5 Videos.
-          </video>
-          <d>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tune-A-Video&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frame SDEdit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Frame Null-Inv </d>
-        <p class="text-white"> <c> + Makoto Shinkai Style </c> </p>
-      </div>
-  </div>
-</div>
-</div>
-</section> -->
-
-
 
 <section class="section hero">
   <div class="container is-max-desktop">
@@ -875,7 +520,9 @@
         <div class="content has-text-justified">
           <img src="static/images/gsb.jpg" />
         </div>
-
+        <p class="content has-text-justified">
+          UniFL exhibits a remarkable advantage over existing methods that concentrate on quality optimization and inference acceleration in terms of both quantitative comparison and user study.
+        </p>
        
       </div>
       
@@ -883,59 +530,37 @@
   </div>
 </section>
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@article{zhang2024unifl,
-        title={UniFL: Improve Stable Diffusion via Unified Feedback Learning}, 
-        author={Zhang Jiacheng, Wu Jie, Ren Yuxi, Xia Xin, Kuang Huafeng, Huang Weilin, Zheng Min, FU Lean, Li Guanbin},
-        year={2024},
-        journal={arXiv:2403.09535},
-}
-  </code></pre>
-    </div>
+<section class="section" id="BibTeX">
+  <div class="container content is-max-desktop">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhang2024unifl,
+      title={UniFL: Improve Stable Diffusion via Unified Feedback Learning}, 
+      author={Zhang Jiacheng, Wu Jie, Ren Yuxi, Xia Xin, Kuang Huafeng, Huang Weilin, Zheng Min, FU Lean, Li Guanbin},
+      year={2024},
+      journal={arXiv:2403.09535},
+}</code></pre>
+  </div>
 </section>
-<!--End BibTex citation -->
 
-
-<!-- <section class="section">
-  <div class="hero-body">
-    <div class="container is-max-desktop content">
-    <h2 class="title">Explanation</h2>
-    <small>1. For better visualization, we only show the edited word in this page. Please check our paper and code for the whole source prompt. </small> <br/>
-    <small>2. Most of the results are directly edited from <a href="https://github.com/vinthony/deep-blind-watermark-removal">Stable diffusion v1.4</a>. We use one-shot video diffusion model (<a href="https://tuneavideo.github.io/">Tune-A-Video</a>) checkpoints for shape-aware editing, whose results are marked as *. </small> <br/>
-    <small>3. Our method does not require training a Tune-A-Video Model. </small>
-    <h2 class="title">Acknowledgement</h2>
-    <small>This project is supported by the National Key R&D Program of China under grant number 2022ZD0161501.
-      The authors would also like to express sincere gratitude to Tencent AI Lab for providing the necessary computation resources and a conducive environment for research. 
-       </small>
-    </div>
-  </section> -->
-
-  <footer class="footer">
+<footer class="footer">
   <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/pdf/2401.04468.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
     <div class="columns is-centered">
-      <div class="column is-8">
+      <div class="column is-6">
         <div class="content">
           <p>
-            This page was built using the <a href="https://github.com/vinthony/project-page-template">modification version</a> of <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> from <a href="https://github.com/vinthony">vinthony</a>.
-            You are free to borrow this website. We just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
+             The source code of this webpage is based on the <a href="https://github.com/nerfies/nerfies.github.io/"> Nerfies</a> project webpage.
           </p>
-
         </div>
       </div>
     </div>
   </div>
 </footer>
 
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+<script type="text/javascript" src="./static/slick/slick.min.js"></script>
+</body>
+</html>
