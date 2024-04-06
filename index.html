@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniFL: Improve Stable Diffusion via Unified Feedback Learning</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+      </div>
+      <div class="container has-text-centered">
+        <h1 class="title is-1 publication-title">
+          UniFL: 
+        </h1>
+        <h3 class="title is-3 publication-title">
+          Improve Stable Diffusion via Unified Feedback Learning
+        </h3>
+        <div class="is-size-5 publication-authors">
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=QmdyVQ0AAAAJ&hl=en">Zhang Jiacheng</a>*, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=MxvLqLcAAAAJ&hl=zh-CN&oi=ao">Wu Jie</a>*† </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=C_6JH-IAAAAJ&hl=zh-CN&oi=ao">Ren Yuxi</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=JP14UGgAAAAJ&hl=zh-CN&oi=ao">Xia Xin</a>, </div>
+
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=FunSYJUAAAAJ&hl=zh-CN&oi=ao">Kuang Huafeng</a>, </div>
+
+          <div class="author-block"><a href="https://scholar.google.com/citations?hl=zh-CN&user=Z-0EqtgAAAAJ">Xie Pan</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=JrWHtn8AAAAJ&hl=en">Li Jiashi</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?hl=zh-CN&user=CVkM9TQAAAAJ">Xiao Xuefeng</a>, </div>
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=78vU1IUAAAAJ&hl=zh-CN">Huang Weilin</a>, </div>
+
+          <div class="author-block"><a href="https://scholar.google.com/citations?user=zKtYrHYAAAAJ&hl=zh-CN">Zheng Min</a>, </div>
+          <div class="author-block">FU Lean, </div>
+
+          <div class="author-block"><a href="http://guanbinli.com/">Li Guanbin</a>, </div>
+                  
+        </div>
+
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">ByteDance Inc.</span>
+          <span class="author-block">&nbsp&nbsp<sup>*</sup>Equal Contribution &nbsp&nbsp<sup>†</sup>Project Leader</span>
+        </div>
+
+        <div class="column has-text-centered">
+          <div class="publication-links">
+            <!-- PDF Link. -->
+            <span class="link-block">
+                <!-- <a href="https://arxiv.org/abs/2401.04468"
+                   class="external-link button is-normal is-rounded is-dark"> -->
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero">
+  <div class="is-max-desktop">
+    <h2 class="title is-2, columns is-centered">Text-to-Image Examples</h2>
+    <div class="marquee-wrapper">
+        <div class="marquee-block">
+          <div class="marquee-inner to-left">
+            <span>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_1.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  ream a dog holding a cigar and glass with whiskey + dim volumetric lighting, 8k octane beautifully ... 
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_2.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  Portrait of a clown wearing a medieval royal robe and an ornate crown on a colorful close ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_3.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  Burger gone wild, mega detailed, volumetric lighting, beautiful, golden hour, sharp focus, ultra detail ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_4.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  3 d render abundant flowering hosta plants made from ideas, 3 d geometric neon shapes ...
+                </p>
+
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_5.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  3 d sci - fi cgartist rendering of a hyper realistic marble greek statuary bust floating in space ...
+                </p>
+
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_6.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  4k Portrait of Friedrich Nietzsche in his Suit with a chiseled Jawline and serious Look ...
+                </p>
+
+                
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_7.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A 3 d render of peewee herman on max headroom, octane render, unreal engine, hyperrealism, 8 k ...</p>
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_8.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A beautiful classy partying couple, dimly lit upscale 1920s speakeasy, relaxed pose, art deco, detail ...
+                </p>
+
+              </div>
+            
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_10.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A chubby tabby cat surfing on a rainbow in outer space, diffuse lighting, fantasy, intricate, surreal ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_11.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A closeup photorealistic photograph of a rabbit chef. film still, vibrant colors. this 4 k hd image ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_12.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A contemporary painting of a little boy sits in his bed and looks through the window into the night ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_13.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A cow in a luxury chair reading the newspaper, digital art, landscape, fantasy art, octane render ...
+                </p>
+
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 4-Step</c></p>
+                <img class="image" src="static/images/4step_14.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A creepy slimy pink ocelot that looks like an investigator, wearing a long beige trench coat, CGI ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 20-Step</c></p>
+                <img class="image" src="static/images/20step_1.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A goldfish swimming inside a whiskey glass, close up view, dramatic lighting, DOF, caustics, soft ...
+                </p>
+
+              </div>
+            </span>
+            <span>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 20-Step</c></p>
+                <img class="image" src="static/images/20step_2.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  Beautiful ceramics studio photograph of a tall geometric symmetrical stoneware vase glazed by Jackson ...
+                </p>
+
+              </div>
+
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 20-Step</c></p>
+                <img class="image" src="static/images/20step_3.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A full body portrait of a beautiful french milkmaid in silk underwear, recumbent in the arboreal sun ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 20-Step</c></p>
+                <img class="image" src="static/images/20step_4.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A grinning girl, with plant patterns, her face looks like an orchid, she is the center of the garden ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 20-Step</c></p>
+                <img class="image" src="static/images/20step_5.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A high quality illustration of a goth-clown hybrid with red hair, trending on artstation, hd ...
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 20-Step</c></p>
+                <img class="image" src="static/images/20step_6.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  Detailed soft painting of a scarecrow and his wife dancing. lino print elegant highly detailed artst
+                </p>
+
+              </div>
+              <div class="marquee-item">
+                <p><c>SDXL + UniFL 20-Step</c></p>
+                <img class="image" src="static/images/20step_7.jpg" width="400" height="400" >
+                <p class="text-white" style="font-family: 'Bradley Hand', cursive; font-weight: bold; font-size: 22px;">
+                  A portrait of japanese crane walking into a forest of japanese pines, by range murata, a big red sun ...  
+                </p>
+
+              </div>
+              <div class="marquee-item">
+             
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+             
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+               
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+                
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+            
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+             
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+               
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+              <div class="marquee-item">
+              
+                <img class="image" src="xxx" width="400" height="400" >
+                <p class="text-white"> Inference <c>SDXL + UniFL 20-Step</c> </p>
+
+              </div>
+            </span>
+        </div>
+    </div>
+  </section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2, columns is-centered">Text-to-Video Examples</h2>
+   
+    <center>
+      <table class="center">
+        <tr>
+          <td width="25%" style="text-align: center; font-weight: bold; font-size: 17px; padding-bottom: 10px;">AnimateDiff + LCM 12-Step</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width="25%" style="text-align: center; font-weight: bold; color: red; font-size: 17px;">AnimateDiff + UniFL 12-Step</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width="25%" style="text-align: center; font-weight: bold; font-size: 17px;">AnimateDiff + LCM 12-Step</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width="25%" style="text-align: center; font-weight: bold; color: red; font-size: 17px;">AnimateDiff + UniFL 12-Step</td>
+        </tr>
+      </table>
+    </center>
+
+    <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_black_ink.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_black_ink.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_female.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_female.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"a drop of black ink falling in a superwhite background in slow motions angle advertising."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"a drop of black ink falling in a superwhite background in slow motions angle advertising."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"3d animated female character, singing and moving her arms, musical film style , 4k, high quality vid ..."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"3d animated female character, singing and moving her arms, musical film style , 4k, high quality vid ..."</td>
+        </tr>
+      </table>
+    </center>
+
+    <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_lick.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_lick.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_swim_pool.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_swim_pool.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">":lipsticks advertisement  -camera pan up right -s 7."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">":lipsticks advertisement  -camera pan up right -s 7."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"modern swimming pool villa design by arquitetura, in winter, snow, in the style of 32k uhd, white and blue ... "</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"modern swimming pool villa design by arquitetura, in winter, snow, in the style of 32k uhd, white and blue ..."</td>
+        </tr>
+      </table>
+    </center>
+
+
+    <table class="center">
+      <tr>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_panda.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_panda.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/lcm_step12_speed_car.mp4"></video></td>
+        <td style="padding-left: 5px; padding-right: 5px;"></td>
+        <td><video muted autoplay="autoplay" loop="loop" playsinline src="static/videos/rlhf_v3_step12_speed_car.mp4"></video></td>
+      </tr>
+    </table>
+    <center>
+      <table class="center">
+        <tr>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"A cute talking panda stands in the museum, furry，Chinese New Year style red clothes， cinematic, 4k, epic Steven Spielberg movie still ..."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"A cute talking panda stands in the museum, furry，Chinese New Year style red clothes， cinematic, 4k, epic Steven Spielberg movie still ..."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"a uniquely captivating Ferrari Portofino advertisement, emphasizing its elegance and speed, night, ultra-high definition."</td>
+          <td style="padding-left: 5px; padding-right: 5px;"></td>
+          <td width=25% style="text-align:center; font-family: Comic Sans MS, Comic Sans, cursive">"a uniquely captivating Ferrari Portofino advertisement, emphasizing its elegance and speed, night, ultra-high definition."</td>
+        </tr>
+      </table>
+    </center>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Diffusion models have revolutionized the field of image generation, 
+            leading to the proliferation of high-quality models and diverse downstream applications. 
+            However, despite these significant advancements, the current competitive solutions still 
+            suffer from several limitations, including inferior visual quality, a lack of aesthetic appeal, 
+            and inefficient inference, without a comprehensive solution in sight. 
+            To address these challenges, we present <b><i>UniFL</i></b>, a unified framework that leverages feedback learning to enhance diffusion models comprehensively. 
+            UniFL stands out as a universal, effective, and generalizable solution applicable to various diffusion models, such as SD1.5 and SDXL.
+            Notably, UniFL incorporates three key components: perceptual feedback learning, which enhances visual quality; 
+            decoupled feedback learning, which improves aesthetic appeal; 
+            and adversarial feedback learning, which optimizes inference speed.
+            In-depth experiments and extensive user studies validate the superior performance of our proposed method in 
+            enhancing both the quality of generated models and their acceleration. For instance, UniFL surpasses ImageReward by <b>17%</b> user preference in terms of generation quality 
+            and outperforms LCM and SDXL Turbo by <b>57%</b> and <b>20%</b> in 4-step inference. Moreover, we have verified the efficacy of our approach in downstream tasks, including Lora, ControlNet, and AnimateDiff.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+        <h2 class="title is-2, columns is-centered">Pipeline</h2>
+      <br>
+      <h2 class="subtitle has-text-justified">
+        <figure style="width: 100%;">
+          <a href="assets/figures/overview.png">
+              <img width="100%" src="static/images/pipeline.jpg" />
+          </a>
+        </figure>
+      </h2>
+    </div>
+  </div>
+  <p class="content has-text-justified">
+    <b>Pipeline</b>: UniFL aims to elevate the visual generation quality, enhance preference aesthetics, and accelerate the inference process in a unified perspective of feedback learning. 
+    The Pipeline of UniFL is depicted as follows. UniFL contains three key components: <b>Perceptual Feedback Learning:</b> Exploit the generation prior embedded in the existing image perceptual model
+    (e.g. Instance segmentation model). <b>Decoupled Feedback Learning:</b> Achieve efficient human preference alignment with multiple fine-grained human preference reward models.
+    <b>Adversarial Feedback Learning:</b>  Adversarially train the diffusion model and reward model, improving the generation quality for the sample of fewer inference steps. The model is trained via two-stage opitmization,
+   </p>
+</div>
+</section>
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Perceptual Feedback Learning</h2>
+        <div class="content has-text-justified">
+          <img src="static/images/pefl.jpg" />
+        </div>
+        <p class="content has-text-justified">
+          The existing perceptual model can serve as an excellent visual generation quality feedback provider for the diffusion model. 
+          Take the instance segmentation model as an example, it accurately captures the defect of the generation(e.g. the distort arm of the boy)
+        </p>
+
+        <div class="content has-text-justified">
+          <img src="static/images/pefl_performance.jpg" />
+        </div>
+        <p class="content has-text-justified">
+          Perceptual Feedback Learning of UniFL significantly enhance the visual generation quality of diffusion model, including style response, structure optimization.
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Adversarial Feedback Learning</h2>
+        <div class="content has-text-justified">
+          <img src="static/images/acceleration.jpg" />
+        </div>
+        <p class="content has-text-justified">
+          Adversarial Feedback Learning of UniFL achieves superior acceleration performance compared with the existing commonly used acceleration methods, including LCM, SDXL-Turbo, etc.
+        </p>
+
+       
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Comparsions</h2>
+        <div class="content has-text-justified">
+          <img src="static/images/visualization.jpg" />
+        </div>
+        <div class="content has-text-justified">
+          <img src="static/images/gsb.jpg" />
+        </div>
+        <p class="content has-text-justified">
+          UniFL exhibits a remarkable advantage over existing methods that concentrate on quality optimization and inference acceleration in terms of both quantitative comparison and user study.
+        </p>
+       
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container content is-max-desktop">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhang2024unifl,
+      title={UniFL: Improve Stable Diffusion via Unified Feedback Learning}, 
+      author={Zhang Jiacheng, Wu Jie, Ren Yuxi, Xia Xin, Kuang Huafeng, Huang Weilin, Zheng Min, FU Lean, Li Guanbin},
+      year={2024},
+      journal={arXiv:2403.09535},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/pdf/2401.04468.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="content">
+          <p>
+             The source code of this webpage is based on the <a href="https://github.com/nerfies/nerfies.github.io/"> Nerfies</a> project webpage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="./static/slick/slick.min.js"></script>
+</body>
+</html>
