@@ -1,1 +1,1 @@
-The webpage of our paper: ***UniFL: Improve Stable Diffusion via Unified Feedback Learning***.
+The webpage of our paper: ***UniFL: Improve Latent Diffusion Model via Unified Feedback Learning***.
